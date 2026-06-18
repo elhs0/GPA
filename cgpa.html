@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cumulative CGPA — GPA Ledger</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="index.html" class="brand">
+        <span class="brand-mark">GPA Ledger</span>
+        <span class="brand-tag">credit-weighted</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="calculator.html">Semester GPA</a></li>
+        <li><a href="cgpa.html" class="active">Cumulative CGPA</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <p class="page-eyebrow">Every semester, pooled together</p>
+    <h1 class="page-title">Cumulative GPA</h1>
+    <p class="page-lede">Your CGPA pools quality points and credit hours across every semester you've saved — the same number that ends up on your transcript.</p>
+
+    <div class="seal-wrap">
+      <div class="seal" id="seal">
+        <div class="seal-inner">
+          <span class="seal-value" id="sealValue">—</span>
+          <span class="seal-label">CGPA</span>
+        </div>
+      </div>
+      <div class="seal-meta">
+        <h3>Overall standing</h3>
+        <p id="totalsLine">Save a semester from the calculator to begin your cumulative record.</p>
+        <span class="standing-pill standing-warn" id="standingPill">No data yet</span>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
+      <p class="page-eyebrow" style="margin: 0;">Saved semesters</p>
+      <a href="calculator.html" class="btn btn-ghost">+ Add another semester</a>
+    </div>
+
+    <div id="semesterList"></div>
+
+    <hr class="section-divider">
+
+    <p class="page-eyebrow">Plan ahead</p>
+    <h2 style="font-family: var(--font-display); color: var(--ink); font-size: 1.6rem; margin-bottom: 8px;">What do I need to reach a target GPA?</h2>
+    <p style="color: #4A4A42; font-size: 0.95rem; max-width: 620px; margin-bottom: 22px;">
+      Starting from your current cumulative record, tell us how many more credit hours you're about to take and the CGPA you're aiming for. We'll work out the average grade point you'd need across those new credits.
+    </p>
+
+    <div class="card">
+      <div class="two-col" style="margin-bottom: 0;">
+        <div>
+          <label for="targetCredits" style="display: block; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brass); margin-bottom: 8px;">Upcoming credit hours</label>
+          <input type="number" id="targetCredits" placeholder="e.g. 15" min="1" step="1" style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 2px; font-family: var(--font-body); font-size: 0.95rem; background: var(--parchment);">
+        </div>
+        <div>
+          <label for="targetGpa" style="display: block; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brass); margin-bottom: 8px;">Target CGPA</label>
+          <input type="number" id="targetGpa" placeholder="e.g. 3.50" min="0" max="4" step="0.01" style="width: 100%; padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 2px; font-family: var(--font-body); font-size: 0.95rem; background: var(--parchment);">
+        </div>
+      </div>
+      <button class="btn btn-primary" id="calcTargetBtn" type="button" style="margin-top: 20px;">Calculate what I need</button>
+
+      <div id="targetResult" style="display: none; margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--line);"></div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    GPA LEDGER &middot; BUILT FOR COURSEWORK &middot; YOUR DATA STAYS IN YOUR BROWSER
+  </footer>
+
+  <script src="js/shared.js"></script>
+  <script src="js/cgpa.js"></script>
+</body>
+</html>
